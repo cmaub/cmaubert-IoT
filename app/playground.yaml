@@ -4,6 +4,7 @@ metadata:
   name: wil-playground
   namespace: dev
 spec:
+  replicas: 1
   selector:
     matchLabels:
       app: wil-playground
@@ -24,11 +25,9 @@ metadata:
   name: wil-playground
   namespace: dev
 spec:
-  type: ClusterIP
+  type: LoadBalancer
   selector:
     app: wil-playground
   ports:
-    - name: http
-      port: 8888
+    - port: 8888
       targetPort: 8888
-      protocol: TCP
